@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-/* ================= CORS (FIXED) ================= */
+
 app.use(
   cors({
     origin: [
@@ -20,17 +20,17 @@ app.use(
   })
 );
 
-/* ================= MIDDLEWARE ================= */
+
 app.use(express.json());
 
-/* ================= ROUTES ================= */
+
 app.get("/", (req, res) => {
   res.send("Backend API is running 🚀");
 });
 
 app.use("/api/auth", authRoutes);
 
-/* ================= DATABASE ================= */
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully"))
@@ -38,7 +38,7 @@ mongoose
     console.error("MongoDB connection error:", err.message)
   );
 
-/* ================= SERVER ================= */
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
