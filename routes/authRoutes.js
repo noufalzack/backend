@@ -9,7 +9,7 @@ const router = express.Router();
 
 /* ================= SIGNUP ================= */
 router.post("/signup", async (req, res) => {
-  console.log("SIGNUP HIT:", req.body);
+ console.log("SIGNUP DATA:", req.body);
   try {
     const { name, email, password, mobile } = req.body;
 
